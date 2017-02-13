@@ -541,6 +541,24 @@
   \end{tabular*}
 }
 
+%Define custom entry for double cventry, eg two degrees at same institution.
+\newcommand*{\cventrydouble}[8]{
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \multicolumn{2}{L{17cm}}{\descriptionstyle{#5}} \\
+
+    \ifempty{#6#8}
+      {\entrypositionstyle{#6} \\}
+      {\entrypositionstyle{#6} & \entrydatestyle{#7} \\}
+    \multicolumn{2}{L{17cm}}{\descriptionstyle{#8}} \\
+  \end{tabular*}
+}
+
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{
   \begin{center}
