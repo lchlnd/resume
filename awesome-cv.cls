@@ -230,6 +230,7 @@
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
+\newcommand*{\subtitlestyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{darktext} #1}}
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
@@ -513,6 +514,15 @@
   \color{gray}\vhrulefill{0.9pt}
   \par\nobreak
 }
+% Define a section for CV with a subtitle
+% Usage: \cvsection{<section-title>}{<subtitle>}
+\newcommand{\cvsectiondouble}[2]{
+  \par
+  \phantomsection{}
+  \sectionstyle{#1}\hspace{2mm}\subtitlestyle{#2}
+  \color{gray}\vhrulefill{0.9pt}
+  \par\nobreak
+}
 
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
@@ -551,7 +561,7 @@
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{17cm}}{\descriptionstyle{#5}} \\
-
+    
     \ifempty{#6#8}
       {\entrypositionstyle{#6} \\}
       {\entrypositionstyle{#6} & \entrydatestyle{#7} \\}
